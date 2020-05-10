@@ -1,0 +1,12 @@
+diff -urN icecast-server-release-2.4.5/src/connection.c icecast-server-release-2.4.5.1/src/connection.c
+--- icecast-server-release-2.4.5/src/connection.c	2018-12-04 17:43:55.000000000 +0900
++++ icecast-server-release-2.4.5.1/src/connection.c	2020-05-10 01:50:52.341480300 +0900
+@@ -270,7 +270,7 @@
+ {
+     int bytes = SSL_write (con->ssl, buf, len);
+ 
+-    if (bytes < 0)
++    if (bytes <= 0)
+     {
+         switch (SSL_get_error (con->ssl, bytes))
+         {
