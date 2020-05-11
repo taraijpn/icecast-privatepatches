@@ -18,3 +18,15 @@
   * `doc/config-file.html` was changed. See: [Issues #2362](https://gitlab.xiph.org/xiph/icecast-server/-/issues/2362)
 
   * based on [icecast 2.4.4 (released version)](https://xiph.org/downloads/)
+
+* icecast-2.4.4-removeadminlink.diff
+
+  * The `admin` link may not be necessary for pure listner.
+
+* icecast-2.4.4-movelistenerurl.diff
+
+  * `http://localhost:port/` is not used. Please access `http://localhost:port/listener`.
+
+  * This is one of the ways to avoid crawlers.
+
+  * Because `status.xsl` is fixed, we can't hide the listener page from humans.
