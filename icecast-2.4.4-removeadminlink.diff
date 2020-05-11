@@ -1,0 +1,22 @@
+diff -urN icecast-server-release-2.4.4/web/server_version.xsl icecast-server-release-2.4.4-removeadminlink/web/server_version.xsl
+--- icecast-server-release-2.4.4/web/server_version.xsl	2018-11-01 06:15:11.000000000 +0900
++++ icecast-server-release-2.4.4-removeadminlink/web/server_version.xsl	2020-05-10 03:27:55.609180900 +0900
+@@ -12,7 +12,6 @@
+ 	<!--index header menu -->
+ 	<div id="menu">
+ 		<ul>
+-			<li><a href="admin/">Administration</a></li>
+ 			<li><a href="status.xsl">Server Status</a></li>
+ 			<li><a href="server_version.xsl">Version</a></li>
+ 		</ul>
+diff -urN icecast-server-release-2.4.4/web/status.xsl icecast-server-release-2.4.4-removeadminlink/web/status.xsl
+--- icecast-server-release-2.4.4/web/status.xsl	2018-11-01 06:15:11.000000000 +0900
++++ icecast-server-release-2.4.4-removeadminlink/web/status.xsl	2020-05-10 03:21:56.897110800 +0900
+@@ -12,7 +12,6 @@
+ 	<!--index header menu -->
+ 	<div id="menu">
+ 		<ul>
+-			<li><a href="admin/">Administration</a></li>
+ 			<li><a href="status.xsl">Server Status</a></li>
+ 			<li><a href="server_version.xsl">Version</a></li>
+ 		</ul>

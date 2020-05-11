@@ -1,0 +1,61 @@
+diff -urN icecast-server-release-2.4.4/conf/icecast.xml.in icecast-server-release-2.4.4-movelistenerurl/conf/icecast.xml.in
+--- icecast-server-release-2.4.4/conf/icecast.xml.in	2018-11-01 06:15:11.000000000 +0900
++++ icecast-server-release-2.4.4-movelistenerurl/conf/icecast.xml.in	2020-05-11 08:57:04.915999100 +0900
+@@ -210,8 +210,12 @@
+         <!-- Aliases: can also be used for simple redirections as well,
+              this example will redirect all requests for http://server:port/ to
+              the status page
+-        -->
+         <alias source="/" destination="/status.xsl"/>
++        -->
++
++        <alias source="/" destination="/index.html"/>
++        <alias source="/listener/" destination="/redirstat.html"/>
++
+         <!-- The certificate file needs to contain both public and private part.
+              Both should be PEM encoded.
+         <ssl-certificate>@pkgdatadir@/icecast.pem</ssl-certificate>
+diff -urN icecast-server-release-2.4.4/web/index.html icecast-server-release-2.4.4-movelistenerurl/web/index.html
+--- icecast-server-release-2.4.4/web/index.html	1970-01-01 09:00:00.000000000 +0900
++++ icecast-server-release-2.4.4-movelistenerurl/web/index.html	2020-05-11 09:00:27.007833900 +0900
+@@ -0,0 +1,7 @@
++<!DOCTYPE html>
++<html lang=en><head>
++<meta name="robots" content="none, noarchive" />
++<title>hello.</title>
++</head>
++<body><p>hello.</body>
++</html>
+diff -urN icecast-server-release-2.4.4/web/Makefile.am icecast-server-release-2.4.4-movelistenerurl/web/Makefile.am
+--- icecast-server-release-2.4.4/web/Makefile.am	2018-11-01 06:15:11.000000000 +0900
++++ icecast-server-release-2.4.4-movelistenerurl/web/Makefile.am	2020-05-11 09:10:27.611262100 +0900
+@@ -11,4 +11,8 @@
+                 tunein.png \
+                 key.png \
+                 status-json.xsl \
+-                xml2json.xslt
++                xml2json.xslt \
++                index.html \
++                redirstat.html \
++                robots.txt
++
+diff -urN icecast-server-release-2.4.4/web/redirstat.html icecast-server-release-2.4.4-movelistenerurl/web/redirstat.html
+--- icecast-server-release-2.4.4/web/redirstat.html	1970-01-01 09:00:00.000000000 +0900
++++ icecast-server-release-2.4.4-movelistenerurl/web/redirstat.html	2020-05-11 09:00:36.139777100 +0900
+@@ -0,0 +1,10 @@
++<!DOCTYPE html>
++<html lang=en><head>
++<meta name="robots" content="none, noarchive" />
++<meta http-equiv="refresh" content="0;URL=/status.xsl">
++<title>redirect</title>
++</head>
++<body>
++<a href="/status.xsl">Go to status page.</a>
++</body>
++</html>
+diff -urN icecast-server-release-2.4.4/web/robots.txt icecast-server-release-2.4.4-movelistenerurl/web/robots.txt
+--- icecast-server-release-2.4.4/web/robots.txt	1970-01-01 09:00:00.000000000 +0900
++++ icecast-server-release-2.4.4-movelistenerurl/web/robots.txt	2020-05-11 09:07:47.045898100 +0900
+@@ -0,0 +1,2 @@
++User-agent: *
++Disallow: /
