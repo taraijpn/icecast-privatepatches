@@ -25,7 +25,7 @@
 
 * icecast-2.4.4-movelistenerurl.diff
 
-  * `http://localhost:port/` is not used. Please access `http://localhost:port/listener`.
+  * `http://localhost:port/` is not used. Please access `http://localhost:port/listener/`.
 
   * This is one of the ways to avoid crawlers.
 
